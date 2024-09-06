@@ -20,6 +20,7 @@
             "outputPath": "dist/weatherforcast",
             "index": "src/index.html",
             "main": "src/main.ts",
+            "baseHref": "/weatherforcast/",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
