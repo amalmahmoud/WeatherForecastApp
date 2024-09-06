@@ -1,0 +1,35 @@
+
+<div class="card country-info">
+    <div class="info-location">
+    <div class="currentLocation">
+        <span> {{date | date : 'EEEE, MMMM d, y'}}</span>
+    </div>
+    <div  *ngIf="weatherData">
+        <fa-icon [icon]="falocation" class="location"></fa-icon>
+       <span class="locationname">{{weatherData.currentLocation}}</span> 
+    </div>
+</div>
+    <div class="row">
+
+        <div class="col temp"  *ngIf="weatherData">
+            <h2 class="font-weight-bold font-48"> {{weatherData.temp_C}}°C </h2>
+        </div>
+        <div class="col weatherdata"  *ngIf="weatherData">
+            <div class="">
+                <fa-icon [icon]="faWind" class="wind"></fa-icon>
+                <span class=" info">{{weatherData.windspeedKmph}}km/hr</span>
+
+            </div>
+            <div class="">
+                <fa-icon [icon]="faTint" class="drop"></fa-icon>
+                <span class=" info">{{weatherData.humidity}}%</span>
+
+            </div>
+            <div class="">
+                <fa-icon [icon]="faSun" class="sun"></fa-icon>
+                <span class=" info">{{weatherData.uvIndex}}</span>
+
+            </div>
+        </div>
+    </div>
+</div>

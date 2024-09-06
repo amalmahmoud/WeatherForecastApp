@@ -1,0 +1,47 @@
+<div class="container-fluid cityweathercontainer" *ngIf="weatherData">
+
+    <div class="row g-0 section-one">
+        <div class=" col-12 col-md-5 col-lg-5">
+            <app-card-weather-info [weatherData]="weatherData"></app-card-weather-info>
+        </div>
+        <app-week-bar-chart class=" card col-12  col-md-5 col-lg-5" [dataset]="cityData"
+            *ngIf="cityData"></app-week-bar-chart>
+    </div>
+
+    <div class="row section-two g-0">
+        <h2>Hourly weather</h2>
+        <ul class="nav nav-pills">
+            <li class="nav-item" *ngFor="let tab of tabList ">
+                <a class="nav-link" [ngClass]="{'active':selectedTab == tab.day}" (click)="tabChange(tab.day)">
+                    {{tab.day}}</a>
+            </li>
+        </ul>
+
+        <div class="tab-content card">
+            <ng-container [ngSwitch]="selectedTab">
+
+                <ng-container *ngSwitchCase="'Today'">
+                    <app-hour-temp-chart [dataset]="todayHours" *ngIf="todayHours"></app-hour-temp-chart>
+                </ng-container>
+
+                <ng-container *ngSwitchCase="'Tomorrow'">
+                    <app-hour-temp-chart [dataset]="tomorrowHours" *ngIf="tomorrowHours"></app-hour-temp-chart>
+                </ng-container>
+
+            </ng-container>
+
+        </div>
+
+    </div>
+    <div class="row g-0 section-three">
+
+        <div class="card col-sm-12 col-md-10 col-lg-5" *ngIf="historicalWeather">
+            <app-month-weather-chart [dataset]="historicalWeather"></app-month-weather-chart>
+        </div>
+
+        <div class="card history-card  col-sm-12 col-md-10 col-lg-5" *ngIf="yearData">
+            <app-year-weather-chart [dataset]="yearData"></app-year-weather-chart>
+        </div>
+
+    </div>
+</div>

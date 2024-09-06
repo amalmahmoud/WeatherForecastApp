@@ -1,0 +1,72 @@
+.city-current-weather {
+    -webkit-box-shadow: 3px 3px 10px 3px #dddddd;
+    -moz-box-shadow: 3px 3px 10px 3px #dddddd;
+    box-shadow: 3px 3px 10px 3px #dddddd;
+    margin: 100px;
+    padding: 20px 10px;
+    border-radius: 15px;
+    border: 1px solid #474bff;
+}
+
+.chart-border {
+    border: 1px solid #474bff;
+    border-radius: 18px;
+    padding: 80px;
+}
+
+.section-one {
+    display: flex;
+    padding: 50px;
+    justify-content: space-around;
+    padding: 100px 20px;
+
+}
+
+.cityweathercontainer {
+    background-color: #f4f4f4;
+    min-height: 100vh;
+}
+
+.section-two {
+    padding: 50px 100px;
+    margin: auto;
+}
+
+.section-three {
+    justify-content: space-around;
+    padding: 100px 20px;
+}
+
+@media(max-width:992px) {
+    .history-card {
+        margin-top: 50px;
+    }
+}
+
+@media(max-width:900px) {
+    .section-two {
+        padding: 0;
+        margin-top: 20px;
+    }
+
+}
+
+@media(max-width:767px) {
+    .card {
+        margin-top: 50px;
+    }
+}
+
+@media(max-width:500px) {
+
+    .section-one,
+    .section-three {
+        padding: 0;
+
+    }
+
+    .section-one {
+        padding-top: 50px;
+    }
+
+}

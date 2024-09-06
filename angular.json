@@ -28,9 +28,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
-            ],
-            "scripts": []
+              "src/styles.scss",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css"
+              ],
+            "scripts": [
+              "node_modules/d3/dist/d3.js"
+            ]
           },
           "configurations": {
             "production": {
