@@ -13,7 +13,7 @@ export class WeatherService {
     weather: string = `https://api.worldweatheronline.com/premium/v1/weather.ashx`;
     geoLoc: string = 'https://api.geoapify.com/v1/geocode/reverse';
     historyLocalWeather = 'https://api.worldweatheronline.com/premium/v1/past-weather.ashx';
-    citiesURL = 'http://api.geonames.org/searchJSON';
+    citiesURL = 'https://api.geonames.org/searchJSON';
     geoCityData!: GeoNameData;
     currentLocation!: string;
     constructor(private http: HttpClient) {
