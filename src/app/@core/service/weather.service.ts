@@ -40,7 +40,7 @@ export class WeatherService {
         });
     }
     getCities(country_code: string): Observable<CitiesInfoRes> {
-        return this.http.get<CitiesInfoRes>(environment.citiesURL,
+        return this.http.get<CitiesInfoRes>(environment.citiesURL + 'api/searchJSON',
             {
                 params: {
                     country: country_code,
