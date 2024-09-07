@@ -5,23 +5,20 @@ import { WeatherForecastRes } from '../model/country-weather-res.model';
 import { GeoLocationRes } from '../model/geolocation-res.model';
 import { CitiesInfoRes, GeoNameData } from '../model/cities-info-res.model';
 import { PastWeatherRes } from '../model/past-weather-res.model';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class WeatherService {
     KEY = '05426d4de03449f49b5111619243008';
     GE0KEY = '0086260217614b4f984a096b58cc5581'
-    weather: string = `https://api.worldweatheronline.com/premium/v1/weather.ashx`;
-    geoLoc: string = 'https://api.geoapify.com/v1/geocode/reverse';
-    historyLocalWeather = 'https://api.worldweatheronline.com/premium/v1/past-weather.ashx';
-    citiesURL = 'https://api.geonames.org/searchJSON';
+
     geoCityData!: GeoNameData;
     currentLocation!: string;
     constructor(private http: HttpClient) {
 
     }
-    // key=xxxxxxxxxxxxx&q=48.85,2.35&num_of_days=2&tp=3&format=xml
     getCountryWeather(location: string, numOfDays: number): Observable<WeatherForecastRes> {
-        return this.http.get<WeatherForecastRes>(this.weather, {
+        return this.http.get<WeatherForecastRes>(environment.weather, {
             params: {
                 key: this.KEY,
                 q: location,
@@ -34,7 +31,7 @@ export class WeatherService {
 
     getGeoLocation(latitude: number, longitude: number): Observable<GeoLocationRes> {
 
-        return this.http.get<GeoLocationRes>(this.geoLoc, {
+        return this.http.get<GeoLocationRes>(environment.geoLoc, {
             params: {
                 lat: latitude,
                 lon: longitude,
@@ -43,13 +40,20 @@ export class WeatherService {
         });
     }
     getCities(country_code: string): Observable<CitiesInfoRes> {
-        const url = `${this.citiesURL}?country=${country_code}&maxRows=10&username=amalmahmoud&callback=JSONP_CALLBACK`;
-        return this.http.jsonp<CitiesInfoRes>(url, 'callback');
+        return this.http.get<CitiesInfoRes>(environment.citiesURL,
+            {
+                params: {
+                    country: country_code,
+                    username: "amalmahmoud",
+                    maxRows: 10
+                }
+            }
+        );
 
     }
     getHistoricalWeatherData(location: string): Observable<PastWeatherRes> {
         const today = new Date();
-        return this.http.get<PastWeatherRes>(this.historyLocalWeather, {
+        return this.http.get<PastWeatherRes>(environment.historyLocalWeather, {
             params: {
                 key: this.KEY,
                 q: location,
