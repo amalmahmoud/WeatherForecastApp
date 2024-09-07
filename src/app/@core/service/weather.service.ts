@@ -45,7 +45,8 @@ export class WeatherService {
                 params: {
                     country: country_code,
                     username: "amalmahmoud",
-                    maxRows: 10
+                    maxRows: 10,
+                    format: 'json',
                 }
             }
         );
