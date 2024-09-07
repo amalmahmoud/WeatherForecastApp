@@ -1,1 +1,1 @@
-web: npx serve -s dist/weatherforcast
+web: npx serve -s dist
