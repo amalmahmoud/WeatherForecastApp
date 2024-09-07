@@ -40,13 +40,12 @@ export class WeatherService {
         });
     }
     getCities(country_code: string): Observable<CitiesInfoRes> {
-        return this.http.get<CitiesInfoRes>(environment.citiesURL + 'api/searchJSON',
+        return this.http.get<CitiesInfoRes>(environment.citiesURL ,
             {
                 params: {
                     country: country_code,
                     username: "amalmahmoud",
                     maxRows: 10,
-                    format: 'json',
                 }
             }
         );

@@ -12,10 +12,7 @@ const port = process.env.PORT || 8080;
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
-app.get('/api/*', (req, res) => {
-  const url = `http://api.geonames.org${req.originalUrl.replace('/api/', '/')}`;
-  req.pipe(request(url)).pipe(res);
-});
+
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*'); // Allow all origins or specify a domain
