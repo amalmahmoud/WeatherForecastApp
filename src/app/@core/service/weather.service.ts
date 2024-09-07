@@ -5,7 +5,7 @@ import { WeatherForecastRes } from '../model/country-weather-res.model';
 import { GeoLocationRes } from '../model/geolocation-res.model';
 import { CitiesInfoRes, GeoNameData } from '../model/cities-info-res.model';
 import { PastWeatherRes } from '../model/past-weather-res.model';
-import { environment } from 'src/environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable()
 export class WeatherService {

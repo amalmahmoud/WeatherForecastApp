@@ -1,7 +1,7 @@
-import { WeatherService } from 'src/app/@core/service/weather.service';
 import { Component, OnInit } from '@angular/core';
-import { CurrentCondition, Hourly, Month, Weather } from 'src/app/@core/model/country-weather-res.model';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { WeatherService } from '../../@core/service/weather.service';
+import { CurrentCondition, Hourly, Month, Weather } from '../../@core/model/country-weather-res.model';
 
 @Component({
   selector: 'app-city-weather-forecast',

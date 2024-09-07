@@ -3,10 +3,9 @@ import { Router } from '@angular/router';
 import { faTemperature0 } from '@fortawesome/free-solid-svg-icons'
 import { NgxSpinnerService } from 'ngx-spinner';
 import { forkJoin, map, switchMap } from 'rxjs';
-import { GeoNameData } from 'src/app/@core/model/cities-info-res.model';
-import { CurrentCondition, Weather, WeatherForecastRes } from 'src/app/@core/model/country-weather-res.model';
-import { GeoLocationRes } from 'src/app/@core/model/geolocation-res.model';
-import { WeatherService } from 'src/app/@core/service/weather.service';
+import { GeoNameData } from '../../@core/model/cities-info-res.model';
+import { CurrentCondition } from '../../@core/model/country-weather-res.model';
+import { WeatherService } from '../../@core/service/weather.service';
 
 @Component({
   selector: 'app-landing-page',
